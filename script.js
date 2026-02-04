@@ -54,12 +54,15 @@ const saveNote = (event) => {
             title: title,
             content: content
         }
+        console.log(notes);
+
     } else {
         notes.unshift({
             id: Date.now().toString(),
             title: title,
             content: content
         })
+
     }
 
 
@@ -130,26 +133,39 @@ const toggleTheme = () => {
 //applying dark mode with persistance
 
 const applyStoredTheme = () => {
-    if(localStorage.getItem('theme') === 'dark'){
+    if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-theme');
         document.getElementById('themeToggleBtn').textContent = '☀️';
     }
 }
 
+const counterFunction = () => {
+    let arrayCount = notes.length;
+    localStorage.setItem('count', arrayCount);
+}
+
+const applyCounter = () => {
+    const counterVariable = document.getElementById('counterCircle');
+    let tempCount = localStorage.getItem('count');
+
+    counterVariable.textContent = tempCount;
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
     //call the dark theme functions first... 
     applyStoredTheme();
-
+    applyCounter();
 
     notes = loadNotes();
     window.onload = () => {
         renderNotes();
+        //cal counter fn
+        //counterFunction();
     }
 
     let noteForm = document.getElementById('noteForm');
-    noteForm.addEventListener('submit', saveNote);
+    noteForm.addEventListener('submit', saveNote, counterFunction(), applyCounter());
     //dark mode 
     let themeToggle = document.getElementById("themeToggleBtn");
     themeToggle.addEventListener('click', toggleTheme);
@@ -161,4 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
             closeNoteDialog();
         }
     })
+
 })
