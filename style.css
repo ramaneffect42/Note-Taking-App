@@ -52,6 +52,7 @@ h1 {
     box-shadow: 0 2px 15px var(--base-shadow-color);
     text-align: center;
     font-size: 2rem;
+    padding: 5px;
     color: var(--text-color);
 }
 
@@ -334,4 +335,8 @@ dialog::backdrop {
 .empty-state p {
     font-size: 1rem;
     margin-bottom: 2rem;
+}
+
+@media(max-width:480px) {
+    
 }

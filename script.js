@@ -37,8 +37,8 @@ const openNoteDialog = (noteId = null) => {
 
 
 
-const saveNote = (event) => {
-    event.preventDefault();
+const saveNote = () => {
+    //event.preventDefault(); //removed because counter function needs to update
     console.log(`the saveNote funciton has been called.`);
 
     const title = document.getElementById('noteTitle').value.trim();
