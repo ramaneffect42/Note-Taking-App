@@ -85,6 +85,8 @@ const deleteNote = (noteId) => {
     notes = notes.filter(note => note.id != noteId);
     saveNotes();
     renderNotes();
+    counterFunction();
+    applyCounter();
 }
 
 
@@ -120,6 +122,9 @@ const renderNotes = () => {
         </div> 
         </div>
         `).join('');
+    
+    counterFunction();
+    applyCounter();
 }
 
 
@@ -155,7 +160,6 @@ const applyCounter = () => {
 document.addEventListener('DOMContentLoaded', () => {
     //call the dark theme functions first... 
     applyStoredTheme();
-    applyCounter();
 
     notes = loadNotes();
     window.onload = () => {
@@ -165,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let noteForm = document.getElementById('noteForm');
-    noteForm.addEventListener('submit', saveNote, counterFunction(), applyCounter());
+    noteForm.addEventListener('submit', saveNote);
     //dark mode 
     let themeToggle = document.getElementById("themeToggleBtn");
     themeToggle.addEventListener('click', toggleTheme);

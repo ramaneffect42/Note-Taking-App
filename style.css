@@ -45,13 +45,11 @@ h1 {
     height: 3rem;
     width: 3rem;
     border-radius: 100%;
-    margin-left: auto;
     z-index: 10;
-    margin-right: 9%;
     background-color: var(--brand-color);
     box-shadow: 0 2px 15px var(--base-shadow-color);
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 5px;
     color: var(--text-color);
 }
@@ -67,7 +65,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    width: 86%;
 }
 
 .add-note-btn {
@@ -117,7 +115,7 @@ header {
     justify-content: end;
     direction: rtl;
     gap: 1.5rem;
-    margin: 0;
+    margin-top: 8px;
 }
 
 
